@@ -21,3 +21,6 @@ RUN unzip /root/samtools.zip -d /root
 RUN rm /root/samtools.zip
 RUN make HTSDIR=/root/htslib-1.3.1 -C /root/samtools-1.3.1
 RUN ln -s /root/samtools-1.3.1/samtools /usr/bin/samtools
+RUN curl -L https://github.com/GregoryFaust/samblaster/archive/v.0.1.22.zip > /root/samblaster.zip
+RUN unzip /root/samblaster.zip -d /root
+RUN make -C /root/samblaster-v.0.1.22
