@@ -24,4 +24,4 @@ RUN ln -s /root/samtools-1.3.1/samtools /usr/bin/samtools
 RUN curl -L https://github.com/GregoryFaust/samblaster/archive/v.0.1.22.zip > /root/samblaster.zip
 RUN unzip /root/samblaster.zip -d /root
 RUN make -C /root/samblaster-v.0.1.22
-RUN ln -s /root/samblaster-v.0.1.22 /usr/bin/samblaster
+RUN ln -s /root/samblaster-v.0.1.22/samblaster /usr/bin/samblaster
