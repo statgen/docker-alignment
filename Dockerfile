@@ -3,6 +3,7 @@ FROM ubuntu:14.04
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
+    git \
     libncurses-dev \
     unzip \
     zlib1g-dev
@@ -25,3 +26,7 @@ RUN curl -L https://github.com/GregoryFaust/samblaster/archive/v.0.1.22.zip > /r
 RUN unzip /root/samblaster.zip -d /root
 RUN make -C /root/samblaster-v.0.1.22
 RUN ln -s /root/samblaster-v.0.1.22/samblaster /usr/bin/samblaster
+RUN git clone https://github.com/statgen/bamUtil /root/bamUtil
+RUN git --git-dir=/root/bamUtil/.git --work-tree=/root/bamUtil checkout NonPrimaryDedup
+RUN make -C /root/bamUtil
+RUN cp /root/bamUtil/bin/bam /usr/bin/bam-non-primary-dedup
