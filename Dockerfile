@@ -28,5 +28,5 @@ RUN make -C /root/samblaster-v.0.1.22
 RUN ln -s /root/samblaster-v.0.1.22/samblaster /usr/bin/samblaster
 RUN git clone https://github.com/statgen/bamUtil /root/bamUtil
 RUN git --git-dir=/root/bamUtil/.git --work-tree=/root/bamUtil checkout NonPrimaryDedup
-RUN make -C /root/bamUtil
+RUN make LIB_PATH_BAM_UTIL=/root/htslib-1.3.1 -C /root/bamUtil
 RUN cp /root/bamUtil/bin/bam /usr/bin/bam-non-primary-dedup
