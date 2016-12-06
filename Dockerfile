@@ -32,3 +32,6 @@ RUN git clone https://github.com/statgen/bamUtil /root/bamUtil
 RUN git --git-dir=/root/bamUtil/.git --work-tree=/root/bamUtil checkout NonPrimaryDedup
 RUN make -C /root/bamUtil
 RUN cp /root/bamUtil/bin/bam /usr/bin/bam-non-primary-dedup
+RUN git --git-dir=/root/bamUtil/.git --work-tree=/root/bamUtil checkout ExternalMemorySortManager
+RUN make -C /root/bamUtil
+RUN cp /root/bamUtil/bin/bam /usr/bin/bam-ext-mem-sort-manager
