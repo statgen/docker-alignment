@@ -29,9 +29,9 @@ RUN ln -s /root/samblaster-v.0.1.24/samblaster /usr/bin/samblaster
 RUN git clone https://github.com/statgen/libStatGen /root/libStatGen
 RUN make -C /root/libStatGen
 RUN git clone https://github.com/statgen/bamUtil /root/bamUtil
-RUN git --git-dir=/root/bamUtil/.git --work-tree=/root/bamUtil checkout NonPrimaryDedup
+RUN git --git-dir=/root/bamUtil/.git --work-tree=/root/bamUtil checkout NonPrimaryDedup c8eae40d7824769bf63390fe16be82cc146b8d6f
 RUN make -C /root/bamUtil
 RUN cp /root/bamUtil/bin/bam /usr/bin/bam-non-primary-dedup
-RUN git --git-dir=/root/bamUtil/.git --work-tree=/root/bamUtil checkout ExternalMemorySortManager
+RUN git --git-dir=/root/bamUtil/.git --work-tree=/root/bamUtil checkout ExternalMemorySortManager b6e4a7de6b7ce08d488f539ada4f1717cd4d12e4
 RUN make -C /root/bamUtil
 RUN cp /root/bamUtil/bin/bam /usr/bin/bam-ext-mem-sort-manager
