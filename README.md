@@ -1,6 +1,7 @@
 # docker-alignment
 Docker image for alignment.
 
+## Pre-align
 ```bash
 samtools view -uh -F 0x900 $local_input_file \
   | bam-ext-mem-sort-manager squeeze --in -.ubam --keepDups --rmTags AS:i,BD:Z,BI:Z,XS:i,MC:Z,MD:Z,NM:i,MQ:i --out -.ubam \
@@ -10,6 +11,7 @@ samtools view -uh -F 0x900 $local_input_file \
 ```
 
 
+## Align
 ```bash
 ref_path=<ref_path>
 pre_output_base=<pre_output_base>
@@ -31,6 +33,7 @@ do
 done <<< "$(tail -n +2 ${pre_output_base}.list)"
 ```
 
+## Post-align
 ```bash
 input_dir=<input_dir>
 ref_path=<ref_path>
