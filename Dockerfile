@@ -27,6 +27,7 @@ RUN unzip /root/samblaster.zip -d /root
 RUN make -C /root/samblaster-v.0.1.24
 RUN ln -s /root/samblaster-v.0.1.24/samblaster /usr/bin/samblaster
 RUN git clone https://github.com/statgen/libStatGen /root/libStatGen
+RUN git --git-dir=/root/libStatGen/.git --work-tree=/root/libStatGen checkout 9db9c23e176a6ce6f421a3c21ccadedca892ac0c
 RUN make -C /root/libStatGen
 RUN git clone https://github.com/statgen/bamUtil /root/bamUtil
 RUN git --git-dir=/root/bamUtil/.git --work-tree=/root/bamUtil checkout c8eae40d7824769bf63390fe16be82cc146b8d6f #NonPrimaryDedup
